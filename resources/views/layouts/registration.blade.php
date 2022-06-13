@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SOUNDZ CMR</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Themesdesign" />
+
+    <link rel="shortcut icon" href="{{asset('registration/images/favicon.ico')}}">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{asset('registration/css/bootstrap.min.css')}}" type="text/css">
+
+    <!--Material Icon -->
+    <link rel="stylesheet" type="text/css" href="{{asset('/registration/css/materialdesignicons.min.css')}}" />
+
+    <!-- Custom  Css -->
+    <link rel="stylesheet" type="text/css" href="{{asset('registration/css/style.css')}}" />
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+</head>
+
+<body>
+
+@yield('content')
+
+<!-- bootstrap -->
+<script src="{{asset('registration/js/bootstrap.bundle.min.js')}}"></script>
+<!-- CUSTOM JS -->
+<script src="{{asset('registration/js/app.js')}}"></script>
+</body>
+
+</html>
