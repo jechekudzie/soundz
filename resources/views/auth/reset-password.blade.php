@@ -6,59 +6,18 @@
         <div class="container">
             <div class="row g-0 bg-white align-items-center">
 
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <div class="bg-login">
-                        <div class="bg-overlay"></div>
-                        <img src="{{asset('registration/images/bg-img-2.png')}}" class="img-fluid" alt="">
-                        <div class="auth-contain">
-                            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                            data-bs-slide-to="0" class="active" aria-current="true"
-                                            aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                            data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleIndicators"
-                                            data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="text-center text-white my-4 p-4">
-                                            <h3>Learn and Practice</h3>
-                                            <p class="text-white-50 f-20 mt-3">No matter what experience you have.We
-                                                will help you start
-                                                coding in minutes.</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="text-center text-white my-4 p-4">
-                                            <h3>Learn and Practice</h3>
-                                            <p class="text-white-50 f-20 mt-3">No matter what experience you have.We
-                                                will help you start
-                                                coding in minutes.</p>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="text-center text-white my-4 p-4">
-                                            <h3>Learn and Practice</h3>
-                                            <p class="text-white-50 f-20 mt-3">No matter what experience you have.We
-                                                will help you start
-                                                coding in minutes.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end -->
-                            </div>
-                        </div>
+                        <div class=""></div>
+                        <img style="padding-left: 40px" src="{{asset('registration/soundz.png')}}" class="img-fluid"
+                             alt="">
                     </div>
                 </div>
-                <!-- end col -->
-
-                <div class="col-lg-6">
+                <div class="col-lg-5">
                     <div class="auth-box">
                         <div class="mb-4 mb-md-5 text-center">
                             <a href="javascript:void(0);" class="auth-logo">
-                                <img src="images/logo-dark.png" height="24" alt="">
+                                <img src="{{asset('registration/logo-05.png')}}" height="24" alt="">
                             </a>
                         </div>
 

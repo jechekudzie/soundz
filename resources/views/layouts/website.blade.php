@@ -9,7 +9,7 @@
                 <div class="col-lg-6">
                     <div class="bg-login">
                         <div class="bg-overlay"></div>
-                        <img src="{{asset('registration/images/bg-img-2.png')}}" class="img-fluid" alt="">
+                        <img src="{{asset('registration/soundz.png')}}" class="img-fluid" alt="">
                         <div class="auth-contain">
                             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
@@ -58,7 +58,7 @@
                     <div class="auth-box">
                         <div class="mb-4 mb-md-5 text-center">
                             <a href="javascript:void(0);" class="auth-logo">
-                                <img src="images/logo-dark.png" height="24" alt="">
+                                <img src="{{asset('registration/logo-05.png')}}" height="24" alt="">
                             </a>
                         </div>
 
