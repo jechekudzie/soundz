@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Http\Controllers;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Laravel\Socialite\Facades\Socialite;
 
