@@ -220,8 +220,8 @@ hr {
 }
 
 .btn-success {
-  background: #1fafa5;
-  border-color: #1fafa5 !important;
+  background: #008654;
+  border-color: #008654 !important;
 }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success.focus, .btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled):active:focus,
@@ -722,7 +722,10 @@ hr {
 }
 
 .bg-white {
-  background-color: #ffffff !important;
+  background-color: #red !important;
+}
+.bg-image {
+    background-image: url("../bg.png")
 }
 
 .bg-soft-white {
