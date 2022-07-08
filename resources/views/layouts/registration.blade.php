@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SOUNDZ CMR</title>
+    <title>SOUNDZ cmr</title>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <meta name="author" content="Themesdesign"/>
@@ -31,8 +31,10 @@
     width: 250px;
     top: 0;
     left: 0%;
+    padding: 20px;
 ">
-    <img src="{{asset('Components-04.svg')}}">
+    {{--<img src="{{asset('Components-04.svg')}}">--}}
+    <img style="width: 200px;" src="{{asset('mail.png')}}">
 </div>
 <div style="background: url('{{asset('bg.png')}}') no-repeat center center;
     -webkit-background-size: cover;

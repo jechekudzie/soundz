@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,20 +29,26 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        $user = User::where('email', $request->email)->first();
 
-        $request->session()->regenerate();
+        if ($user->provider != 'local') {
+            return redirect('/')->with('message', 'You registered using ' . $user->provider . ',
+            please login with ' . $user->provider . ' option below.');
 
-        $user = Auth::user();
-        if ($user->provider == 'local') {
-            if ($user->hasVerifiedEmail()) {
-                return redirect()->intended(RouteServiceProvider::HOME);
-            } else {
-                $user->sendEmailVerificationNotification();
-                return redirect('verify-email');
-            }
         } else {
-            return redirect()->intended(RouteServiceProvider::HOME);
+            $request->authenticate();
+            $request->session()->regenerate();
+            $user = Auth::user();
+            if ($user->provider == 'local') {
+                if ($user->hasVerifiedEmail()) {
+                    return redirect()->intended(RouteServiceProvider::HOME);
+                } else {
+                    $user->sendEmailVerificationNotification();
+                    return redirect('verify-email');
+                }
+            } else {
+                return redirect()->intended(RouteServiceProvider::HOME);
+            }
         }
 
 

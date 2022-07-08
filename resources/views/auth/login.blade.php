@@ -10,6 +10,13 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors"/>
+        @if (session('message'))
+            <div class="alert alert-danger dark alert-dismissible fade show" role="alert">
+                {{session('message')}}
+                <button class="btn-close" type="button" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+            </div>
+        @endif
 
         @csrf
         <div class="mb-3">
@@ -31,7 +38,8 @@
             <div class="col-sm-6">
                 <div class="form-checkbox">
                     <input type="checkbox" class="form-check-input me-1 shadow-none" id="customControlInline">
-                    <label style="color: black;" class="form-label f-15 fw-medium" for="customControlInline">Remember me</label>
+                    <label style="color: black;" class="form-label f-15 fw-medium" for="customControlInline">Remember
+                        me</label>
                 </div>
             </div><!-- end col -->
             @if (Route::has('password.request'))
