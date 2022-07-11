@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
     {
         $user = User::where('email', $request->email)->first();
 
-        if($user){
+        if($user != null){
             if ($user->provider != 'local') {
                 return redirect('/')->with('message', 'You registered using ' . $user->provider . ',
             please login with ' . $user->provider . ' option below.');
