@@ -31,11 +31,14 @@ class AuthenticatedSessionController extends Controller
     {
         $user = User::where('email', $request->email)->first();
 
-        if ($user->provider != 'local') {
-            return redirect('/')->with('message', 'You registered using ' . $user->provider . ',
+        if($user){
+            if ($user->provider != 'local') {
+                return redirect('/')->with('message', 'You registered using ' . $user->provider . ',
             please login with ' . $user->provider . ' option below.');
 
-        } else {
+            }
+        }
+         else {
             $request->authenticate();
             $request->session()->regenerate();
             $user = Auth::user();
