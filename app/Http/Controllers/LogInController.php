@@ -16,7 +16,7 @@ class LogInController extends Controller
     }
 
 
-    public function redirectToProvider($provider)
+   /* public function redirectToProvider($provider)
     {
         //redirect to provider
         return Socialite::driver($provider)->redirect();
@@ -57,5 +57,5 @@ class LogInController extends Controller
             return redirect('dashboard');
         }
 
-    }
+    }*/
 }
