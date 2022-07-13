@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 Route::get('/check', 'AdminController@index');
-Route::get('/logs', 'LoginController@logs');
+/*Route::get('/logs', 'LoginController@logs');*/
 
 Route::get('/admin', 'Admin\EventsController@index');
 Route::resource('/admin/event_types', 'Admin\EventTypesController');
@@ -36,8 +36,8 @@ Route::resource('/admin/items', 'Admin\ItemsController');
 Route::resource('/admin/packages', 'Admin\PackagesController');
 
 
-Route::get('/login/{provider}', 'LoginController@redirectToProvider');
-Route::get('/login/{provider}/callback', 'LoginController@handleProviderCallback');
+/*Route::get('/login/{provider}', 'LoginController@redirectToProvider');
+Route::get('/login/{provider}/callback', 'LoginController@handleProviderCallback');*/
 
 
 Route::get('/dashboard', function () {
