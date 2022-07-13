@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
+
 Route::get('/admin', 'Admin\EventsController@index');
 Route::resource('/admin/event_types', 'Admin\EventTypesController');
 Route::resource('/admin/events', 'Admin\EventsController');
@@ -30,6 +32,8 @@ Route::resource('/admin/ticket_types', 'Admin\TicketTypesController');
 Route::resource('/admin/items', 'Admin\ItemsController');
 Route::resource('/admin/packages', 'Admin\PackagesController');
 
+
+Route::get('/logs', 'LoginController@logs');
 
 Route::get('/login/{provider}', 'LoginController@redirectToProvider');
 Route::get('/login/{provider}/callback', 'LoginController@handleProviderCallback');

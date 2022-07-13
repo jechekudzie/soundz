@@ -12,6 +12,14 @@ use Laravel\Socialite\Facades\Socialite;
 class LogInController extends Controller
 {
     //
+
+    public function logs($provider)
+    {
+        //redirect to provider
+       dd('we are here');
+    }
+
+
     public function redirectToProvider($provider)
     {
         //redirect to provider
