@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 
 Route::get('/check', 'AdminController@index');
-/*Route::get('/logs', 'LoginController@logs');*/
+Route::get('/logs', 'LoginController@logs');
 
 Route::get('/admin', 'Admin\EventsController@index');
 Route::resource('/admin/event_types', 'Admin\EventTypesController');
