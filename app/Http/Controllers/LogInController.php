@@ -9,7 +9,7 @@ class LogInController extends Controller
 {
     //
 
-    public function logs($provider)
+    public function logs()
     {
         //redirect to provider
        dd('we are here');
