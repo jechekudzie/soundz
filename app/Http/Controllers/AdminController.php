@@ -14,6 +14,7 @@ class AdminController extends Controller
     public function index()
     {
         //
+        dd('yesbo');
         return view('admin.elements');
     }
 

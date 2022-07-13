@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 
 
+Route::get('/admin', 'AdminController@index');
+
 Route::get('/admin', 'Admin\EventsController@index');
 Route::resource('/admin/event_types', 'Admin\EventTypesController');
 Route::resource('/admin/events', 'Admin\EventsController');
