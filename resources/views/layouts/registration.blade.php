@@ -33,8 +33,8 @@
     left: 0%;
     padding: 20px;
 ">
-    {{--<img src="{{asset('Components-04.svg')}}">--}}
-    <img style="width: 200px;" src="{{asset('mail.png')}}">
+
+   {{-- <img style="width: 200px;" src="{{asset('mail.png')}}">--}}
 </div>
 <div style="background: url('{{asset('bg.png')}}') no-repeat center center;
     -webkit-background-size: cover;
@@ -47,7 +47,9 @@
             <div class="col-md-5 col-lg-5">
                 <div class="auth-box">
                     <div class="auth-content">
-
+                        <div style="margin: auto;width: 50%;">
+                            <img style="width: 200px;" src="{{asset('mail.png')}}">
+                        </div>
                         @yield('content')
 
                     </div><!-- auth content -->

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->integer('duration')->nullable();//months
             $table->integer('duration_days')->nullable();//days
+            $table->boolean('has_ads')->nullable();//days
             $table->timestamps();
         });
     }

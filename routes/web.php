@@ -36,26 +36,23 @@ Route::resource('/admin/items', 'Admin\ItemsController');
 Route::resource('/admin/packages', 'Admin\PackagesController');
 
 
+Route::resource('/admin/artists', 'Admin\ArtistsController');
+
+//Payments
+Route::get('/select_plan', 'PaymentsController@select_plan');
+Route::get('/checkout/{package}', 'PaymentsController@checkout');
+
+
+Route::post('/flutterwave/create/{package}', 'PaymentsController@create');
+Route::post('/flutterwave/store', 'PaymentsController@store');
+
+
 Route::get('/login/{provider}', 'LoginController@redirectToProvider');
 Route::get('/login/{provider}/callback', 'LoginController@handleProviderCallback');
 
 
-Route::get('/dashboard', function () {
-    $user = Auth::user();
-    if ($user->provider == 'local') {
-        if ($user->hasVerifiedEmail()) {
-            $events = \App\Models\Event::all();
-
-            return view('welcome',compact('events'));
-        } else {
-            $user->sendEmailVerificationNotification();
-            return redirect('verify-email');
-        }
-    } else {
-        $events = \App\Models\Event::all();
-        return view('welcome',compact('events'));
-    }
-
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', 'SiteController@index');
+Route::get('/update_role', 'SiteController@update_role');
+Route::get('/profile', 'SiteController@profile');
 
 require __DIR__ . '/auth.php';

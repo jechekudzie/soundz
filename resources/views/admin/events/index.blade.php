@@ -130,7 +130,7 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="colFormLabel" class="form-label">Date</label>
                                                 <input name="date" type="text" class="form-control"
-                                                       id="colFormLabel">
+                                                       id="datepicker">
                                             </div>
 
                                             <div class="col-md-6 mb-3">
@@ -143,7 +143,7 @@
                                             <div class="col-md-12 mb-3">
                                                 <label for="colFormLabel" class="form-label">Event Description</label>
                                                 <textarea name="description" class="form-control"
-                                                          id="colFormLabel"></textarea>
+                                                          id="editor" rows="20"></textarea>
                                             </div>
 
                                         </div>
@@ -172,9 +172,34 @@
     <script src="{{asset('backend/vendors/datatables.net-bs5/dataTables.bootstrap5.js')}}"></script>
     <script src="{{asset('backend/js/data-table.js')}}"></script>
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js"></script>
+
+    <script type="text/javascript">
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 
     <script src="{{asset('backend/vendors/prismjs/prism.js')}}"></script>
     <script src="{{asset('backend/vendors/clipboard/clipboard.min.js')}}"></script>
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+        } );
+    </script>
 
 @endpush
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Event;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
@@ -29,30 +30,33 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $email = $request->email;
+
+        $user  = User::where('email',$email)->first();
 
         if($user != null){
-            if ($user->provider != 'local') {
-                return redirect('/')->with('message', 'You registered using ' . $user->provider . ',
-            please login with ' . $user->provider . ' option below.');
+            if($user->provider == 'Email and Password'){
+                $request->authenticate();
 
-            }
-        }
-         else {
-            $request->authenticate();
-            $request->session()->regenerate();
-            $user = Auth::user();
-            if ($user->provider == 'local') {
+                $request->session()->regenerate();
+
+                $user = Auth::user();
+
                 if ($user->hasVerifiedEmail()) {
-                    return redirect()->intended(RouteServiceProvider::HOME);
+                    return redirect('dashboard');
                 } else {
-                    $user->sendEmailVerificationNotification();
+                    $request->user()->sendEmailVerificationNotification();
                     return redirect('verify-email');
                 }
-            } else {
-                return redirect()->intended(RouteServiceProvider::HOME);
+
+            }else{
+                return back()->with('message','You registered using '.$user->provider. ', please choose the ' .$user->provider.
+                    ' option below!');
             }
+        }else{
+            return back()->with('message','Your credentials do not match our records');
         }
+
 
 
     }

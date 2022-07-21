@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="iTap media system">
-    <meta name="author" content="Leading Digital">
+    <meta name="description" content="Soundz cmr">
+    <meta name="author" content="Icecream Digital">
     <meta name="keywords" content="">
 
     <title>SOUNDZcmr</title>
@@ -394,7 +394,8 @@
                         </a>
                         <div class="submenu">
                             <ul class="submenu-item">
-                                <li class="nav-item"><a class="nav-link" href="">Users</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('/admin/users')}}">Users</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{url('/admin/artists')}}">Artists</a></li>
                                 <li class="nav-item"><a class="nav-link" href="">Roles and Permission</a></li>
 
                             </ul>

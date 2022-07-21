@@ -8,25 +8,20 @@
             <section class="row">
                 <div class="col-12">
                     <div class="hero owl-carousel" id="hero">
-                        <div class="hero__slide" data-bg="{{asset('website/img/home/slide1.jpg')}}">
-                            <h1 class="hero__title">RRecord Label & Music streaming</h1>
-                            <p class="hero__text">There are many variations of passages of Lorem Ipsum available, but
-                                the
-                                majority have suffered alteration in some form, by injected humour, or randomised words
-                                which don't look even slightly believable</p>
-                            <div class="hero__btns">
+                        <div class="hero__slide" data-bg="{{asset('website/banner.jpg')}}">
+                            <h1 class="hero__title"></h1>
+                            <p class="hero__text">
+                                </p>
+                            {{--<div class="hero__btns">
                                 <a href="#" class="hero__btn hero__btn--green">Buy now</a>
                                 <a href="#" class="hero__btn">Learn more</a>
-                            </div>
+                            </div>--}}
                         </div>
 
-                        <div class="hero__slide" data-bg="img/home/slide2.jpg">
-                            <h2 class="hero__title">Metallica and Slipknot feature in trailer for ‘Long Live Rock’
-                                documentary</h2>
-                            <p class="hero__text">It also features Rage Against The Machine, Guns N' Roses and a number
-                                of
-                                others</p>
-                            <div class="hero__btns">
+                        <div class="hero__slide" data-bg="{{asset('website/banner1.jpg')}}">
+                            <h2 class="hero__title"></h2>
+                            <p class="hero__text"></p>
+                            {{--<div class="hero__btns">
                                 <a href="#" class="hero__btn hero__btn--green">Learn more</a>
                                 <a href="http://www.youtube.com/watch?v=0O2aH4XLbto"
                                    class="hero__btn hero__btn--video open-video">
@@ -35,19 +30,10 @@
                                             d="M16,10.27,11,7.38A2,2,0,0,0,8,9.11v5.78a2,2,0,0,0,1,1.73,2,2,0,0,0,2,0l5-2.89a2,2,0,0,0,0-3.46ZM15,12l-5,2.89V9.11L15,12ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/>
                                     </svg>
                                     Watch video</a>
-                            </div>
+                            </div>--}}
                         </div>
 
-                        <div class="hero__slide" data-bg="img/home/slide3.jpg">
-                            <h2 class="hero__title">New Artist of Our Label</h2>
-                            <p class="hero__text">There are many variations of passages of Lorem Ipsum available, but
-                                the
-                                majority have suffered alteration in some form, by injected humour, or randomised words
-                                which don't look even slightly believable</p>
-                            <div class="hero__btns">
-                                <a href="#" class="hero__btn">Learn more</a>
-                            </div>
-                        </div>
+
                     </div>
 
                     <button class="main__nav main__nav--hero main__nav--prev" data-nav="#hero" type="button">
@@ -73,13 +59,16 @@
                     <div class="main__title">
                         <h2>Upcoming Events</h2>
 
-                        <a href="events.html" class="main__link">See all
+                        <a href="#" class="main__link">See all
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path
                                     d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z"/>
                             </svg>
                         </a>
                     </div>
+                    <br/>
+                    <br/>
+                    <br/>
                 </div>
                 <!-- end title -->
 
@@ -90,12 +79,14 @@
                                 <div class="">
                                     @if($event->episodes)
                                         @if($event->episodes->count()>=1)
-                                            <iframe style="width: 100%; height: 300px"
-                                                    src="https://www.youtube.com/embed/{{substr($event->episodes->first()->link,17)}}"
+                                            <div class="container1">
+                                                <iframe class="responsive-iframe"
+                                                        src="https://www.youtube.com/embed/{{substr($event->episodes->first()->link,17)}}"
+                                                        title="{{asset($event->title)}}" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowfullscreen></iframe>
+                                            </div>
 
-                                                    title="{{asset($event->title)}}" frameborder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowfullscreen></iframe>
                                         @endif
                                     @else
                                         <iframe style="width: 100%; height: 300px"
@@ -137,7 +128,7 @@
                     <div class="main__title">
                         <h2>Artists</h2>
 
-                        <a href="artists.html" class="main__link">See all
+                        <a href="#" class="main__link">See all
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path
                                     d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z"/>
@@ -152,37 +143,37 @@
                         <div class="main__carousel main__carousel--artists owl-carousel" id="artists">
                             <a href="artist.html" class="artist">
                                 <div class="artist__cover">
-                                    <img src="{{asset('website/img/artists/artist1.jpg')}}" alt="">
+                                    <img src="{{asset('website/artist/artist.png')}}" alt="">
                                 </div>
-                                <h3 class="artist__title">Christ Brown</h3>
+                                {{--<h3 class="artist__title">Christ Brown</h3>--}}
                             </a>
 
                             <a href="artist.html" class="artist">
                                 <div class="artist__cover">
-                                    <img src="{{asset('website/img/artists/artist1.jpg')}}" alt="">
+                                    <img src="{{asset('website/artist/artist1.png')}}" alt="">
                                 </div>
-                                <h3 class="artist__title">Christ Brown</h3>
+                                {{--<h3 class="artist__title">Christ Brown</h3>--}}
                             </a>
 
                             <a href="artist.html" class="artist">
                                 <div class="artist__cover">
-                                    <img src="{{asset('website/img/artists/artist1.jpg')}}" alt="">
+                                    <img src="{{asset('website/artist/artist2.png')}}" alt="">
                                 </div>
-                                <h3 class="artist__title">Christ Brown</h3>
+                                {{--<h3 class="artist__title">Christ Brown</h3>--}}
                             </a>
 
                             <a href="artist.html" class="artist">
                                 <div class="artist__cover">
-                                    <img src="{{asset('website/img/artists/artist1.jpg')}}" alt="">
+                                    <img src="{{asset('website/artist/artist3.png')}}" alt="">
                                 </div>
-                                <h3 class="artist__title">Christ Brown</h3>
+                                {{--<h3 class="artist__title">Christ Brown</h3>--}}
                             </a>
 
                             <a href="artist.html" class="artist">
                                 <div class="artist__cover">
-                                    <img src="{{asset('website/img/artists/artist1.jpg')}}" alt="">
+                                    <img src="{{asset('website/artist/artist4.png')}}" alt="">
                                 </div>
-                                <h3 class="artist__title">Christ Brown</h3>
+                                {{--<h3 class="artist__title">Christ Brown</h3>--}}
                             </a>
 
                         </div>

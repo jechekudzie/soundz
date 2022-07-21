@@ -16,16 +16,15 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('event_type_id');
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->string('artist')->nullable();
+            $table->unsignedBigInteger('ticket_type_id')->nullable();
             $table->string('title');
             $table->longText('description')->nullable();
-            $table->string('date')->nullable();
+            $table->timestamp('date')->nullable();
             $table->string('time')->nullable();
             $table->longText('location')->nullable();
-            $table->unsignedBigInteger('ticket_type_id')->nullable();
             $table->string('image')->nullable();
             $table->boolean('published')->default(0);
+            $table->unsignedBigInteger('user_id')->default(0);
             $table->timestamps();
         });
     }

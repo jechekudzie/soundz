@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{asset('website/css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('widthwebsite/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{asset('website/css/paymentfont.min.css')}}">
-    <link rel="stylesheet" href="{{asset('website/css/paymentfont.min.css')}}">
+    <link rel="stylesheet" href="{{asset('website/css/slider-radio.css')}}">
     <link rel="stylesheet" href="{{asset('website/css/plyr.css')}}">
     <link rel="stylesheet" href="{{asset('website/css/main.css')}}">
 
@@ -24,6 +24,27 @@
     <meta name="author" content="Dmitry Volkov">
     <title>SOUNDZcmr</title>
 
+    <style type="text/css">
+        .container1 {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+        }
+
+        /* Then style the iframe to fit in the container div with full height and width */
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+    @livewireStyles
 </head>
 <body>
 <!-- header -->
@@ -31,9 +52,15 @@
     <div class="header__content">
         <div class="header__logo">
             <a href="{{url('/')}}">
-                <img src="{{asset('Components-04.svg')}}" alt="">
+                <img src="{{asset('mail.png')}}" alt="">
             </a>
         </div>
+
+        {{-- <nav class="header__nav">
+             <a href="profile.html">Profile</a>
+             <a href="about.html">About</a>
+             <a href="contacts.html">Contacts</a>
+         </nav>--}}
 
         <form action="#" class="header__search">
             <input type="text" placeholder="Artist, track or podcast">
@@ -51,62 +78,6 @@
             </button>
         </form>
 
-        <div class="header__actions">
-            <div class="header__action header__action--search">
-                <button class="header__action-btn" type="button">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                            d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="header__action header__action--note">
-                <span>17</span>
-                <a href="#" class="header__action-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                            d="M19.05566,2h-14a3.00328,3.00328,0,0,0-3,3V19a3.00328,3.00328,0,0,0,3,3h14a3.00328,3.00328,0,0,0,3-3V5A3.00328,3.00328,0,0,0,19.05566,2Zm-14,2h14a1.001,1.001,0,0,1,1,1v8H17.59082a1.99687,1.99687,0,0,0-1.66406.89062L14.52051,16H9.59082L8.18457,13.89062A1.99687,1.99687,0,0,0,6.52051,13H4.05566V5A1.001,1.001,0,0,1,5.05566,4Zm14,16h-14a1.001,1.001,0,0,1-1-1V15H6.52051l1.40625,2.10938A1.99687,1.99687,0,0,0,9.59082,18h4.92969a1.99687,1.99687,0,0,0,1.66406-.89062L17.59082,15h2.46484v4A1.001,1.001,0,0,1,19.05566,20Z"/>
-                    </svg>
-                </a>
-
-                <div class="header__drop">
-                    <a href="#" class="header__all">View all</a>
-                    <div class="header__note header__note--succ">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/>
-                        </svg>
-                        <p><a href="#modal-info2" class="open-modal">Payment #51</a> was successful!</p>
-                        <span>1 hour ago</span>
-                    </div>
-                    <div class="header__note header__note--fail">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M15.71,8.29a1,1,0,0,0-1.42,0L12,10.59,9.71,8.29A1,1,0,0,0,8.29,9.71L10.59,12l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L13.41,12l2.3-2.29A1,1,0,0,0,15.71,8.29Zm3.36-3.36A10,10,0,1,0,4.93,19.07,10,10,0,1,0,19.07,4.93ZM17.66,17.66A8,8,0,1,1,20,12,7.95,7.95,0,0,1,17.66,17.66Z"/>
-                        </svg>
-                        <p><a href="#modal-info3" class="open-modal">Payment #50</a> failed!</p>
-                        <span>2 hours ago</span>
-                    </div>
-                    <div class="header__note header__note--info">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20Zm0-8.5a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0v-3A1,1,0,0,0,12,11.5Zm0-4a1.25,1.25,0,1,0,1.25,1.25A1.25,1.25,0,0,0,12,7.5Z"/>
-                        </svg>
-                        <p><a href="#modal-info4" class="open-modal">Concert started</a> of notification.</p>
-                        <span>2 hours ago</span>
-                    </div>
-                    <div class="header__note header__note--gift">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M18,7h-.35A3.45,3.45,0,0,0,18,5.5a3.49,3.49,0,0,0-6-2.44A3.49,3.49,0,0,0,6,5.5,3.45,3.45,0,0,0,6.35,7H6a3,3,0,0,0-3,3v2a1,1,0,0,0,1,1H5v6a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V13h1a1,1,0,0,0,1-1V10A3,3,0,0,0,18,7ZM11,20H8a1,1,0,0,1-1-1V13h4Zm0-9H5V10A1,1,0,0,1,6,9h5Zm0-4H9.5A1.5,1.5,0,1,1,11,5.5Zm2-1.5A1.5,1.5,0,1,1,14.5,7H13ZM17,19a1,1,0,0,1-1,1H13V13h4Zm2-8H13V9h5a1,1,0,0,1,1,1Z"/>
-                        </svg>
-                        <p><a href="#modal-info5" class="open-modal">You have received a gift!</a></p>
-                        <span>4 hours ago</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <button class="header__btn" type="button">
             <span></span>
@@ -153,41 +124,62 @@
         </li>
 
 
+        <!-- collapse -->
         <li class="sidebar__nav-item">
-            <a href="news.html" class="sidebar__nav-link">
+            <a class="sidebar__nav-link" data-toggle="collapse" href="#collapseMenu1" role="button"
+               aria-expanded="false" aria-controls="collapseMenu1">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path
-                        d="M16,14H8a1,1,0,0,0,0,2h8a1,1,0,0,0,0-2Zm0-4H10a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Zm4-6H17V3a1,1,0,0,0-2,0V4H13V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H4A1,1,0,0,0,3,5V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V5A1,1,0,0,0,20,4ZM19,19a1,1,0,0,1-1,1H6a1,1,0,0,1-1-1V6H7V7A1,1,0,0,0,9,7V6h2V7a1,1,0,0,0,2,0V6h2V7a1,1,0,0,0,2,0V6h2Z"/>
+                        d="M19,5.5H12.72l-.32-1a3,3,0,0,0-2.84-2H5a3,3,0,0,0-3,3v13a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V8.5A3,3,0,0,0,19,5.5Zm1,13a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5.5a1,1,0,0,1,1-1H9.56a1,1,0,0,1,.95.68l.54,1.64A1,1,0,0,0,12,7.5h7a1,1,0,0,1,1,1Z"/>
                 </svg>
-                <span>News</span></a>
+                <span>Profile</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"/>
+                </svg>
+            </a>
+
+            <div class="collapse" id="collapseMenu1">
+                <ul class="sidebar__menu sidebar__menu--scroll">
+                    <li><a href="{{url('/profile')}}">My Account</a></li>
+                    <li><a href="#">
+
+                            <button class="profile__logout" type="button">
+                                <span>Sign out</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path
+                                        d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"/>
+                                </svg>
+                            </button>
+
+                        </a>
+                    </li>
+
+
+                </ul>
+            </div>
         </li>
+        <!-- end collapse -->
+
         <li>
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <a href="{{route('logout')}}" onclick="event.preventDefault();
+            <a href="#" class="sidebar__nav-link">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a href="{{route('logout')}}" onclick="event.preventDefault();
                               this.closest('form').submit();">
-                    Log OUT
-                </a>
-            </form>
+                        @if(\Illuminate\Support\Facades\Auth::user())
+                            Log OUT
+                        @endif
+                    </a>
+                </form>
+            </a>
+
         </li>
     </ul>
     <!-- end sidebar nav -->
 </div>
 <!-- end sidebar -->
 
-<!-- player -->
-<div class="player">
-    <div class="player__cover">
-        <img src="{{asset('img/covers/cover.svg')}}" alt="">
-    </div>
-
-    <div class="player__content">
-        <span class="player__track"><b class="player__title">Epic Cinematic</b> – <span class="player__artist">AudioPizza</span></span>
-        <audio
-            src="https://dmitryvolkov.me/demo/blast2.0/audio/12071151_epic-cinematic-trailer_by_audiopizza_preview.mp3"
-            id="audio" controls></audio>
-    </div>
-</div>
 
 <button class="player__btn" type="button">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -431,125 +423,19 @@
 </form>
 <!-- end modal ticket -->
 
-<!-- modal info -->
-<div id="modal-info2" class="zoom-anim-dialog mfp-hide modal modal--info">
-		<span class="modal__icon modal__icon--green">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path
-                    d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"></path></svg>
-		</span>
-
-    <button class="modal__close" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-                d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/>
-        </svg>
-    </button>
-
-    <h4 class="sign__title">Payment #51 was successful!</h4>
-
-    <div class="sign__group sign__group--row">
-        <label class="sign__label">Total cost:</label>
-        <span class="sign__value">$18.00</span>
-    </div>
-
-    <div class="sign__group sign__group--row">
-        <label class="sign__label">Payment method: <b>Paypal</b></label>
-
-        <span class="sign__text sign__text--small">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</span>
-    </div>
-</div>
-<!-- end modal info -->
-
-<!-- modal info -->
-<div id="modal-info3" class="zoom-anim-dialog mfp-hide modal modal--info">
-		<span class="modal__icon modal__icon--red">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path
-                    d="M15.71,8.29a1,1,0,0,0-1.42,0L12,10.59,9.71,8.29A1,1,0,0,0,8.29,9.71L10.59,12l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L13.41,12l2.3-2.29A1,1,0,0,0,15.71,8.29Zm3.36-3.36A10,10,0,1,0,4.93,19.07,10,10,0,1,0,19.07,4.93ZM17.66,17.66A8,8,0,1,1,20,12,7.95,7.95,0,0,1,17.66,17.66Z"></path></svg>
-		</span>
-
-    <button class="modal__close" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-                d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/>
-        </svg>
-    </button>
-
-    <h4 class="sign__title">Payment #50 failed!</h4>
-
-    <div class="sign__group sign__group--row">
-        <label class="sign__label">Total cost:</label>
-        <span class="sign__value">$18.00</span>
-    </div>
-
-    <div class="sign__group sign__group--row">
-        <label class="sign__label">Payment method: <b>Paypal</b></label>
-
-        <span class="sign__text sign__text--small">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</span>
-    </div>
-</div>
-<!-- end modal info -->
-
-<!-- modal info -->
-<div id="modal-info4" class="zoom-anim-dialog mfp-hide modal modal--info">
-		<span class="modal__icon">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path
-                    d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20Zm0-8.5a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0v-3A1,1,0,0,0,12,11.5Zm0-4a1.25,1.25,0,1,0,1.25,1.25A1.25,1.25,0,0,0,12,7.5Z"></path></svg>
-		</span>
-
-    <button class="modal__close" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-                d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/>
-        </svg>
-    </button>
-
-    <h4 class="sign__title">Example of notification.</h4>
-
-    <div class="sign__group sign__group--row">
-        <label class="sign__label">Amount to auto-renew:</label>
-        <span class="sign__value">$18.00</span>
-    </div>
-
-    <div class="sign__group sign__group--row">
-        <span class="sign__text sign__text--small">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</span>
-    </div>
-</div>
-<!-- end modal info -->
-
-<!-- modal info -->
-<div id="modal-info5" class="zoom-anim-dialog mfp-hide modal modal--info">
-		<span class="modal__icon modal__icon--purple">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path
-                    d="M18,7h-.35A3.45,3.45,0,0,0,18,5.5a3.49,3.49,0,0,0-6-2.44A3.49,3.49,0,0,0,6,5.5,3.45,3.45,0,0,0,6.35,7H6a3,3,0,0,0-3,3v2a1,1,0,0,0,1,1H5v6a3,3,0,0,0,3,3h8a3,3,0,0,0,3-3V13h1a1,1,0,0,0,1-1V10A3,3,0,0,0,18,7ZM11,20H8a1,1,0,0,1-1-1V13h4Zm0-9H5V10A1,1,0,0,1,6,9h5Zm0-4H9.5A1.5,1.5,0,1,1,11,5.5Zm2-1.5A1.5,1.5,0,1,1,14.5,7H13ZM17,19a1,1,0,0,1-1,1H13V13h4Zm2-8H13V9h5a1,1,0,0,1,1,1Z"></path></svg>
-		</span>
-
-    <button class="modal__close" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-                d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/>
-        </svg>
-    </button>
-
-    <h4 class="sign__title">You have received a gift!</h4>
-
-    <div class="sign__group sign__group--row">
-        <span class="sign__text sign__text--small">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</span>
-
-        <span class="sign__text sign__text--small">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</span>
-    </div>
-</div>
-<!-- end modal info -->
-
 <!-- JS -->
 <script src="{{asset('website/js/jquery-3.5.1.min.js')}}"></script>
-<script src="website/js/bootstrap.bundle.min.js"></script>
-<script src="website/js/owl.carousel.min.js"></script>
-<script src="website/js/jquery.magnific-popup.min.js"></script>
-<script src="website/js/smooth-scrollbar.js"></script>
-<script src="website/js/select2.min.js"></script>
-<script src="website/js/slider-radio.js"></script>
-<script src="website/js/jquery.inputmask.min.js"></script>
-<script src="website/js/plyr.min.js"></script>
-<script src="website/js/main.js"></script>
+<script src="{{asset('website/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('website/js/owl.carousel.min.js')}}"></script>
+<script src="{{asset('website/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('website/js/smooth-scrollbar.js')}}"></script>
+<script src="{{asset('website/js/select2.min.js')}}"></script>
+<script src="{{asset('website/js/slider-radio.js')}}"></script>
+<script src="{{asset('website/js/jquery.inputmask.min.js')}}"></script>
+<script src="{{asset('website/js/plyr.min.js')}}"></script>
+<script src="{{asset('website/js/main.js')}}"></script>
+
+@livewireScripts
 </body>
+
 </html>
